@@ -1,0 +1,9 @@
+/.idea/
+*.py[cod]
+__pycache__/
+/cmp/py/py.iml
+/tex/d/tex.iml
+/cmp/other/other.iml
+/tex/tex.iml
+/The-M3C.iml
+/tex/auxil/
