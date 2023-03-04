@@ -1,5 +1,5 @@
 \subsection{Defining the Problem}
-Defining the Problem
+For problem 2, we were instructed to identify underlying factors for the growth models depicted in problem 1, and determine the most impacting factors by constructing a mathematical model.
 
 \subsection{Assumptions}
 \noindent\textbf{Assumption 1}: Statement
@@ -11,25 +11,92 @@ Defining the Problem
 \noindent\textbf{Assumption 3}: Statement
 \textbf{Justification}: blah blah
 
-\subsection{Variables}
-See table 2.1:
+
+\subsection{The Model}
+Our approach to this problem first involved selecting the most significant factors affecting e-bike sales growth. Our final list included the main factors provided in the question, as well as an additional one chosen by our team. Each factor was then quantified as shown below: 
+
+
 \begin{table}[h!]
     \centering
     \begin{tabular}{cc}
         \toprule
-        Variable & Definition      \\
+        Factor & Quantified Measure      \\
         \midrule
-        $x$      & description     \\
-        $y$      & description     \\
-        $z$      & description     \\
+        Health   & Death by cardiovascular illness per 100000     \\
+        Gas Prices (Diesel + Petrol) & E-Bikes sold (1000s of units)     \\
+        Environmental Perception & Percentage of survey respondents selecting Environment\\
+        Disposable Income & Per capita in GBP\\
         \bottomrule
     \end{tabular}
-    \caption{Variables in the Model}
+    \caption{Factors}
     \label{tab:my_label}
 \end{table}
 
-\subsection{The Model}
-Model
+
+To determine the most impacting factor on bike sales, we decided implement the predictive model ARIMA, which we would construct and apply to each factor above.
+The model would then be used to predict future values, which can then be used in conjunction with E-Bike sales to examine their correlation. Error metrics are then
+to be evaluated for each correlation; the most accurate model would be deemed as the most significant factor.
+
+As for the specifics of ARIMA, this model is widely used in datasets that demonstrate non-stationarity, where the series' statistical properties such as
+mean, variance and autocorrelation change over time. ARIMA assumes the input data to
+be stationary, so any non-stationary data has to be made stationary through a reversible
+process. Usually, the transformation involves finding the general trend with methods such as
+regression and then using diffencing to remove the trend from the dataset. With the trend
+eliminated, an ARIMA model can then be constructed and its optimal parameters found.
+
+The parameters are denoted in the form ARIMA(p, d, q) where $p$ is the
+number of Auto-Regressive (AR) terms, $d$ is the orders of differencing, and $q$ is the number
+of Moving Average (MA) terms.
+
+The functions AR(p) and MA(q) are defined below as:
+
+
+\begin{tabular}{|*2{p{.45\textwidth}|}}
+    \hline
+    AR(p):                       & MA(q):                   \\
+    \quad ${\phi (B) X_t = w_t}$ & ${X_t = \theta (B) w_t}$ \\[\baselineskip]
+    Where
+    \begin{itemize}[nosep]
+        \item ${\phi (B)}$ = Autoregressive operator
+        \item ${X_t}$ = Inverse operator
+        \item ${w_t}$ = White noise
+    \end{itemize}
+    &
+    Where
+    \begin{itemize}[nosep]
+        \item ${\theta (B)}$ = Moving average operator
+        \item ${X_t}$ = Inverse operator
+        \item ${w_t}$ = White noise
+    \end{itemize}
+    \\
+    \hline
+\end{tabular}
+
+Before tuning the parameters p and q, the number of differencing required to make the
+data stationary must be found out. To evaluate whether the current dataset is stationary, an
+Augmented Dickey-Fuller (ADF) test was performed.
+ADF tests expand on the original Dickey-Fuller test by including higher-order autoregressive
+processes to form the equation:
+
+
+\begin{equation}
+    \Delta y_{t}=\alpha +\beta t+\gamma y_{t-1}+\delta _{1}\Delta y_{t-1}+\cdots +\delta _{p-1}\Delta y_{t-p+1}+\varepsilon _{t}
+\end{equation}
+%
+where
+${y_{t}}$ is the value of the time series at time t,
+${\alpha}$ is a constant,
+${\beta}$ is the coefficient of the trend, and
+$p$ is the lag order of the autoregressive process.
+
+If data is stationary, then ACF (autocorrelation functions) and PACF (partial autocorrelation functions) can be used.
+AFC and PAFC functions are measures of correlation between past
+and present data, and indicate which past data values are most useful in predicting future
+ones. The results of these functions are then used to select the most optimal parameters for
+p and q.
+
+The ADF test, ACF, and PACF plots were applied onto each factor; the results can be viewed in the bibliography.
+
 
 \subsection{Results}
 Results

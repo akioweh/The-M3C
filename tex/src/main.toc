@@ -7,23 +7,15 @@
 \contentsline {section}{\numberline {2}Q2: Shifting Gears}{6}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Defining the Problem}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Assumptions}{6}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Variables}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}The Model}{7}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Results}{7}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Model Revision}{7}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Discussion}{7}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Sensitivity Analysis}{7}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Technical Computing}{7}{subsection.2.9}%
-\contentsline {section}{\numberline {3}Q3: Off the Chain}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Defining the Problem}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Assumptions}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Variables}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}The Model}{7}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Results}{8}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Model Revision}{8}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Discussion}{8}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Sensitivity Analysis}{8}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Technical Computing}{8}{subsection.3.9}%
+\contentsline {subsection}{\numberline {2.3}The Model}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Results}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Model Revision}{8}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Discussion}{8}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Sensitivity Analysis}{8}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Technical Computing}{8}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Q3: Off the Chain}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Defining the Problem}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Model}{8}{subsection.3.2}%
 \contentsline {section}{\numberline {4}References}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Bibliography}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Program Code}{9}{subsection.4.2}%
