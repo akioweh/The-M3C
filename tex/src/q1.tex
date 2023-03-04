@@ -1,12 +1,30 @@
 \subsection{Defining the Problem}
-Defining the Problem
+In Problem 1, we were tasked with producing a short-term predictive model for e-bike sales.
+More specifically, we were asked to develop projections for total sales volume 2 and 5 years into the future respectively.
 
 \subsection{Assumptions}
-\noindent\textbf{Assumption 1}: Statement
-\textbf{Justification}: blah blah
+\noindent\textbf{Assumption 1}: There will be \underline{no major legislative changes}, governmental campaigns and/or ‘black swan’ (i.e., highly unpredictable and consequential) world events that significantly impact the market for e-bikes within the next five years.
 
-\noindent\textbf{Assumption 2}: Statement
-\textbf{Justification}: blah blah
+\vspace{-6pt}
+\noindent\textbf{Justification}: in practice, it is impossible to account for rare or extreme events within the constraints of a mathematical model; the implications of such events cannot be predicted with accuracy.
+
+\noindent\textbf{Assumption 2}: The market for e-bikes in the European Union behaves comparably to that of the United Kingdom; therefore, \underline{British and European sales can be considered to be in direct linear} \underline{proportion}.
+
+\vspace{-6pt}
+\noindent\textbf{Justifications}: \\
+\vspace{-24pt}
+\begin{adjustwidth}{24pt}{0pt}
+    \noindent\textbf{a)} Of the data provided for European sales, several figures appear to include sales made in the UK (CITE EBICYCLES.COM). Therefore, UK consumer behaviour is partially accounted for even within the larger dataset. \\
+    \noindent\textbf{b)} E-bicycles have only begun gaining traction as a mode of transport in relatively recent years; as a result, UK-specific consumption data is largely unavailable to the public. \\
+    \noindent\textbf{c)} To a large extent, the UK and EU follow similar urban planning practices that include pedestrian walkability and bicycle access.
+    In other terms, city layouts support the practical use of e-bikes.
+    For this reason, population-scaled EU predictions can be considered appropriate substitutes for UK-specific predictions.
+    By contrast, most American cities use car-centric design, frequently involving longer commute distances and poor bike access.
+    This renders the United States hostile to the adoption of e-bikes in a way that the EU and UK are not.
+    For this reason, we chose to exclude the US from our analysis, instead focusing on the UK and EU.
+\end{adjustwidth}
+
+
 
 \noindent\textbf{Assumption 3}: Statement
 \textbf{Justification}: blah blah
@@ -37,16 +55,13 @@ Results
 \subsection{Model Revision}
 Model Revision
 
-\subsection{Discussion}
+\subsection{Evaluation}
 
 \noindent\textbf{Strength 1}: asdf
 
 \noindent\textbf{Strength 2}: asdf
 
 \noindent\textbf{Weakness 1}: asdf
-
-\subsection{Sensitivity Analysis}
-Sensitivity Analysis
 
 \subsection{Technical Computing}
 Technical computing
