@@ -261,3 +261,34 @@ However, a key drawback is that a large data set is necessary to carry this meth
 Initially, our team planned on only using a linear regression model, even though visually the data trend and the model did not match. We came to the conclusion to also implement an exponential model to provide a point of comparison, and to examine whether our initial visual cue did indeed follow an exponential trend.
 
 To carry this out, we found that Python and Jupyter were the better choice over Excel, as we were able to have a higher degree of control over the parameters and values outputted by the functions. Additionally, the error metric functions we defined could be use for the next problems, which would increase our efficiency as less code would need to be re-written.
+
+\subsubsection*{Tilted Sigmoid}
+
+See~\ref{fig:tilted}
+
+\begin{table}[h]
+    \begin{minipage}{0.7\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{titled-sigmoid}%
+        \captionof{figure}{Regressed Tilted Sigmoid Model}
+        \label{fig:tilted}
+    \end{minipage}%
+    \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tabular}{ll}
+            \toprule
+            Metric               & Value   \\
+            \midrule
+            MSE                  & 0.49061 \\
+            RMSE                 & 0.71326 \\
+            MAE                  & 0.52381 \\
+            PCC                  & 0.99973 \\
+            R\textsuperscript{2} & 0.99945 \\
+            CVAR                 & 895.45  \\
+            \bottomrule
+        \end{tabular}
+        \vspace{8pt}
+        \caption{Tilted Sigmoid Statistics}
+        \label{tab:t}
+    \end{minipage}
+\end{table}
