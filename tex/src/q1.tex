@@ -147,6 +147,120 @@ Statistical error of the linear regression model against existing data shows a g
 \end{table}
 
 
+\subsubsection*{Exponential}
+
+The second approach decided upon was exponential regression, which models the non-linear relationship between an independent variable $x$ and dependent variable $y$, where the rate of change of $y$ with respect to $x$ at a given point is proportional to the quantity itself.
+This choice was made based on visual indicators of the data given\textquotesingle s trend, where the line graph exhibited a possible exponential curve.
+Exponential growth functions take the general form of~\eqref{eq:exp}:
+%
+\begin{equation}
+    f(x) = \alpha^x
+    \label{eq:exp}
+\end{equation}
+%
+\noindent where $\alpha$ is the exponential growth factor.
+
+However, in order to fit such a model to arbitrary (non-normalized) values, two additional parameters have to be added to allow for displacement translations of the function on both axis. This gives:
+%
+\begin{equation}
+    f(x) = \beta (\alpha)^{x + a} + b
+    \label{eq:exp2}
+\end{equation}
+%
+\noindent where $a$ and $b$ allows for offsets in the x and y axis, respectively.
+
+An optimization can be made here - the equation can be rearranged to only have 3 parameters yet still be able to fit to any scale and offset of values:
+%
+\begin{equation}
+    f(x) = B^{b (x + a)} + c
+    \label{eq:exp3}
+\end{equation}
+%
+\noindent where $B$, the base, can be any positive constant, and the function is parameterized by $a$, $b$, and $c$.
+
+$a$ and $b$ performs a linear transformation on the input, while $c$ performs a translation on the output.
+The equation in this form expresses in the relationship in purely in terms of translations.
+This reduction in parameters allows for a higher efficiency when regressing the function to the dataset programmatically.
+In the actual regression, 2 was used for the value of $B$.
+
+Unlike linear regression, trying to calculate optimal parameters to an exponential model would technically require calculus concepts such as partial derivatives.
+However, a programmatic approach was taken, and the function was ``blindly'' (without accounting for its algebraic structure) regressed using gradient descent (Alg.~\ref{alg:grad}) from derivative estimates.
+The \verb|curve_fit()| optimizer from the Python SciPy library can blindly optimize any non-linear function to a dataset.
+It is able to optimize unknown functions by performing gradient estimates~\eqref{eq:grad} of the error function with respect to the parameters using the basic definition of the derivative (at a given point, $x$):
+%
+\begin{equation}
+    G = \frac{\Delta f(x)}{\Delta x} = \frac{f(x + \Delta x) - f(x)}{\Delta x}
+    \label{eq:grad}
+\end{equation}
+%
+\noindent where $G$ is the gradient of function $f$ at point $x$.
+$\Delta x$ is set to a very small value to increase accuracy for sensitive functions.
+
+After being able to calculate gradients of the error function at any point of the model function, a gradient descent algorithm~(\ref{alg:grad}) can be deployed to iteratively minimize the error function.
+The parameters are adjusted based the gradients of the error function:
+%
+\begin{equation}
+    \beta_j \longleftarrow \beta_j - \alpha \frac{E(x, \beta + \Delta \beta_j) - E(x, \beta)}{\Delta \beta_j}
+\end{equation}
+%
+\noindent where parameter $\beta_j$ is adjusted based the error function $E$\textquotesingle s gradient - the parameter changes in to the opposite direction of the gradient in order to find the minimum of the error function.
+$\alpha$, the learning rate, is usually a very small value to prevent the parameters from changing too much at once.
+
+\begin{algorithm}
+    \caption{Gradient Descent}
+    \label{alg:grad}
+    \begin{algorithmic}
+        \Repeat
+            \State $\epsilon \gets E(f(x, \mathbf{\beta}))$  \Comment{E is the error function}
+            \State $\gamma \gets \frac{\Delta E(f(x, \mathbf{\beta}))}{\Delta \mathbf{\beta}}$  \Comment{calculate current gradient}
+            \State $\mathbf{\beta} \gets \mathbf{\beta} - \alpha \gamma$  \Comment{$\alpha$ is the learning rate}
+        \Until{$\epsilon$ \text{ is sufficiently small}}  \Comment{$\epsilon$ is the error or residuals}
+        \State \Return $\mathbf{\beta}$ \text{ as the optimal parameters}
+    \end{algorithmic}
+\end{algorithm}
+
+
+The SciPy curve fit optimizer was applied to the given data to obtain the following function~\ref{eq:co2_exp}.
+The exponential model was graphed alongside the actual values and the linear model for comparison in Figure~\ref{fig:ebike_exp}.
+%
+\begin{equation}
+    \hat C_i = 2^{0.023381 (i - 1707.690634)} + 256.024002
+    \label{eq:co2_exp}
+\end{equation}
+
+\begin{table}[h]
+    \begin{minipage}{0.7\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{exponential}%
+        \captionof{figure}{Regressed Exponential Model}
+        \label{fig:ebike_exp}
+    \end{minipage}%
+    \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tabular}{ll}
+            \toprule
+            Metric               & Value   \\
+            \midrule
+            MSE                  & 0.48061 \\
+            RMSE                 & 0.69326 \\
+            MAE                  & 0.56981 \\
+            PCC                  & 0.99973 \\
+            R\textsuperscript{2} & 0.99945 \\
+            CVAR                 & 890.45  \\
+            \bottomrule
+        \end{tabular}
+        \vspace{8pt}
+        \caption{Exponential Model Statistics}
+        \label{tab:ebike_exp_err}
+    \end{minipage}
+\end{table}
+
+Visually, the exponential function better aligns with the actual values; the predicted values also seem to fit with the general trend, and this is confirmed by extremely good error metrics, as show in Table~\ref{tab:ebike_exp_err}.
+An advantage of exponential regression as a predictive model is that it provides high quality forecasts, which increase the accuracy of predicted values during interpolation.
+However, a key drawback is that a large data set is necessary to carry this method out, as a reasonable amount of continuity is needed to accurately predict future values, especially during extrapolation.
+
+
+
 \subsection{Results}
 Results
 
