@@ -1,0 +1,3 @@
+UK CO2 EMISSIONS PER-CAPITA: https://ourworldindata.org/co2/country/united-kingdom
+UK EV SALES: https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer
+UK population: https://data.worldbank.org/indicator/SP.POP.TOTL?locations=GB
