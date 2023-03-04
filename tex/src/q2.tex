@@ -1,19 +1,14 @@
 \subsection{Defining the Problem}
 For problem 2, we were instructed to identify underlying factors for the growth models depicted in problem 1, and determine the most impacting factors by constructing a mathematical model.
 
-\subsection{Assumptions}
-\noindent\textbf{Assumption 1}: Statement
-\textbf{Justification}: blah blah
+\subsubsection*{Limitations}
 
-\noindent\textbf{Assumption 2}: Statement
-\textbf{Justification}: blah blah
-
-\noindent\textbf{Assumption 3}: Statement
-\textbf{Justification}: blah blah
+Naturally, data analysis methods can only best prove correlation while lack at proving cause-and-effect relationships.
+We identified possibly correlated factors (datasets) and computed relecant bivariate statistics to measure how well an independent factor can predict and possible affect the sale of e-bikes.
 
 
 \subsection{The Model}
-Our approach to this problem first involved selecting the most significant factors affecting e-bike sales growth. Our final list included the main factors provided in the question, as well as an additional one chosen by our team. Each factor was then quantified as shown below: 
+Our approach to this problem first involved selecting the most significant factors affecting e-bike sales growth. Our final list included the main factors provided in the question, as well as an additional one chosen by our team. Each factor was then quantified as shown below:
 
 
 \begin{table}[h!]
@@ -23,13 +18,30 @@ Our approach to this problem first involved selecting the most significant facto
         Factor & Quantified Measure      \\
         \midrule
         Health   & Death by cardiovascular illness per 100000     \\
-        Gas Prices (Diesel + Petrol) & E-Bikes sold (1000s of units)     \\
+        Gas Prices (Diesel) & E-Bikes sold (1000s of units)     \\
         Environmental Perception & Percentage of survey respondents selecting Environment\\
         Disposable Income & Per capita in GBP\\
         \bottomrule
     \end{tabular}
     \caption{Factors}
-    \label{tab:my_label}
+    \label{tab:factors}
+\end{table}
+
+Other ``factors'' that logically do not directly affect the sale of e-bikes are still analyzed for relevant correlations:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        Factor & Quantified Measure      \\
+        \midrule
+        Emissions   & CO\textsubscript{2} emissions per capita    \\
+        EV Sales & Sales of Battery-EVs and Hybrid-EVs     \\
+        Population & total population \\
+        \bottomrule
+    \end{tabular}
+    \caption{Other ``Factors''}
+    \label{tab:factors2}
 \end{table}
 
 
@@ -96,6 +108,28 @@ ones. The results of these functions are then used to select the most optimal pa
 p and q.
 
 The ADF test, ACF, and PACF plots were applied onto each factor; the results can be viewed in the bibliography.
+
+Bivariate analysis was performed on each factor against the sale of e-bikes, and the results are summarized in table~\ref{tab:factor_bivar}:
+
+\begin{table}[h!]
+    \centering
+    \caption{Bivariate Statistics of each Factor}
+    \label{tab:factor_bivar}
+    \begin{tabular}{cccc}
+        \toprule
+        Factor & PMCC & R\textsuperscript{2} & Covariance      \\
+        \midrule
+        Emissions   & -0.900 & 0.811 & -425    \\
+        EV Sales & 0.902 & 0.814 & 359     \\
+        Population & 0.906 & 0.821 & 440 \\
+        Gas Price & 0.363 & 0.132 & 171 \\
+        Environmental Perception & 0.967 & 0.936 & 443 \\
+        Disppsable Income & 0.324 & 0.105 & -386 \\
+        Death Rate & -0.899 & 0.641 & -385 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 
 \subsection{Results}
