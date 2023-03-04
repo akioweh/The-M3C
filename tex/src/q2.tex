@@ -109,12 +109,15 @@ p and q.
 
 The ADF test, ACF, and PACF plots were applied onto each factor; the results can be viewed in the bibliography.
 
+We hypothesised that seven identified factors were likely to influence the market for e-bikes over the next five years.
+Each factor has its values normalized between 0 and 1, so that the calculated bivariate statistics are comparable.
+This is because we do not care about the magnitudes of these figures, since they are completely irrelevant and independent; we only care about the trend and patterns in the data.
+
 Bivariate analysis was performed on each factor against the sale of e-bikes, and the results are summarized in table~\ref{tab:factor_bivar}:
 
 \begin{table}[h!]
     \centering
     \caption{Bivariate Statistics of each Factor}
-    \label{tab:factor_bivar}
     \begin{tabular}{cccc}
         \toprule
         Factor & PMCC & R\textsuperscript{2} & Covariance      \\
@@ -128,26 +131,25 @@ Bivariate analysis was performed on each factor against the sale of e-bikes, and
         Death Rate & -0.899 & 0.641 & -385 \\
         \bottomrule
     \end{tabular}
+    \label{tab:factor_bivar}
 \end{table}
 
+Through this correlation analysis, we determined that the three most significant factors affecting e-bike usage were, in order, environmental perception, population and electric vehicle (EV) sales.
 
+We defined ``environmental perception'' as a metric for societal awareness and concern about climate-related issues. We quantified this through results obtained in the UK YouGov poll from 2011-22. This revealed that heightening environmental perception coincided with an increase in e-bike usage. More specifically, there was a high r\textsuperscript{2} value of approximately 0.936, indicating a strong correlation. This is corroborated by real-world social phenomena. In recent years, increasing media coverage, highly publicised climate summits and more prolific environmental education, among other contributing factors, have brought the climate crisis to the forefront of the public consciousness. Although it would be premature to definitively conclude that changing attitudes led to the increased adoption of e-bikes, it is likely that the changing social landscape motivated more consumers to opt for more environmentally friendly modes of transport. E-bikes are far less polluting than conventional, fossil-fuel driven vehicles, and therefore likely benefitted from this mentality shift.
 
-\subsection{Results}
-Results
+As expected, increased demand for e-bikes also correlated with population growth (r\textsuperscript{2} = 0.821). The reasons for this are likely more explicit: a larger population requires greater quantities of transport. E-bikes likely benefitted from this greater general trend, resulting in increases in usage over several years of population growth.
 
-\subsection{Model Revision}
-Model Revision
+Increased EV sales also showed a strong correlation with e-bike sales (r\textsuperscript{2} = 0.813). Rather than a simple causation, this was likely due to a more nuanced interdependence. As EV usage grew, public awareness and acceptance of electrical mobility grew with it. This trendiness in turn led to greater demand for e-bikes. The same effect may have applied in the opposite direction, whereby increased e-bike use resulted in greater demand for electric vehicles in general. It is therefore impossible to determine whether more EV use truly led to the increase in e-bike sales or whether more intricate behavioural factors were at play.
 
-\subsection{Discussion}
+Besides the three principal factors, we found that two further variables were moderately correlated with increased e-bike use: carbon dioxide emissions per capita and the death rate from cardiovascular disease.
 
-\noindent\textbf{Strength 1}: asdf
+There was a moderate negative correlation between emissions and e-bike usage (Pearson correlation coefficient = -0.900; r\textsuperscript{2} = 0.811). Realistically, it is unlikely that e-bike usage caused a drastic decrease in carbon dioxide emissions, due to the fact that it accounts for a relatively small proportion of the transport sector. Simply put, this correlation may result from the fact that both variables increased significantly over time, albeit relatively independently. Alternatively, increased emissions may link with greater environmental awareness, discussed above.
 
-\noindent\textbf{Strength 2}: asdf
+Furthermore, we discovered an unexpected weak-to-moderate positive correlation between the death rate from cardiovascular illness and e-bike use (r\textsuperscript{2} = 0.641). This could potentially occur due to greater health awareness and resulting demand for exercise goods; however, given the relatively low correlation strength, it is far more likely to be coincidental.
 
-\noindent\textbf{Weakness 1}: asdf
+The two factors that have little to no correlation to e-bike sales are gas prices and disposable income. Gas prices have an r\textsuperscript{2} value of 0.132, meaning there is a weak correlation between rising gas prices and e-bike sales over time. This is due to existing infrastructure being built up on gas, oil and other non-renewable resources, meaning that consumers rarely switch to other substitutes such as e-bikes, despite large increases in oil prices (as occurred at the outbreak of the war in Ukraine). Regardless, a covariance of 171 highlights that there is a positive relationship, making e-bikes a more attractive option for consumers as rising gas prices increase the costs of driving a car.
 
-\subsection{Sensitivity Analysis}
-Sensitivity Analysis
+Disposable income has an r\textsuperscript{2} value of 0.105, meaning that there is insignificant correlation between an individual\textquotesingle s disposable income and e-bike sales. This is due to a large amount of other desired goods by consumers, causing them choose other goods instead of e-bikes, due to personal preference. However, factors such as social influence and cultural attitudes can influence individual consumer choice, unrelated to disposable income.
 
-\subsection{Technical Computing}
-Technical computing
+Recent sociological research provides experimental evidence for a quantified tipping point in social convention. That is, once a sufficiently large minority embraces a new technology or consensus, the rest of society is incentivised to follow. Centola et al. define this tipping point at 25\% of the population. This provides a useful metric for societal receptiveness towards e-bikes as a mode of transport. We chose the UK National Travel Attitudes Study (NTAS) 2021 in order to quantify social preferences. Only 4\% of all respondents owned or had regular use of an e-bike. Out of those who had never used an e-bike, 35\% indicated that they would be interested in riding an e-bike if [they] had the chance to do so.  This is significantly greater than the 25\% tipping point, suggesting that the British public is sufficiently supportive of e-bikes – at least in principle – for them to become widely accepted in the future. However, at present, this does not translate to effective demand; most respondents indicated a low likelihood of actually purchasing an e-bike, even with a variety of options for financing. This semi-quantitative analysis implies that the immediate future may be decisive; demand may be influenced to new heights, but an alternative, more pessimistic outlook would suggest that sales may stagnate.
